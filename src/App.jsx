@@ -4,8 +4,7 @@ function App() {
   const [country, setCountry] = useState([]);
   return (
     <>
-      <div>
-        <select value={country} onChange={(e) => {setCountry([e.target.value]);}}>
+        <select onChange={(e) => {setCountry(e.target.value);}}>
           {countries.map((item, index) => {
             return (
               <option key={index} value={index}>
@@ -16,16 +15,14 @@ function App() {
         </select>
       {
         countries[country] !== "" &&
-        console.log(Number(country))
         (<select>
           {
             countries[Number(country)].cities.map((item,index)=>{
-              return <option value={index}>{item}</option>
+              return <option key={item} value={index}>{item}</option>
             })
           }
         </select>
       )}
-      </div>
     </>
   );
 }
