@@ -14,14 +14,17 @@ function App() {
             );
           })}
         </select>
-
-        <select>
+      {
+        countries[country] !== "" &&
+        console.log(Number(country))
+        (<select>
           {
-            countries[country] && countries[country].cities.map((item,index)=>{
+            countries[Number(country)].cities.map((item,index)=>{
               return <option value={index}>{item}</option>
             })
           }
         </select>
+      )}
       </div>
     </>
   );
